@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "473844908661",
+    "project_id": "crazy-ball---endless-fun",
+    "storage_bucket": "crazy-ball---endless-fun.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473844908661:android:334fafca8353d8f5706e3c",
+        "android_client_info": {
+          "package_name": "com.aerodash.crazyball"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473844908661-g94u152g7ik86d4t0e3afnrv9ha9p28v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBStZ_33KfjsDI8EPhbp3Odnac9YdlaQto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473844908661-g94u152g7ik86d4t0e3afnrv9ha9p28v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
