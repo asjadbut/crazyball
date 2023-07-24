@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
                 onGameoverLoadBannerAd?.Invoke();
             AudioManager.Instance.PlaySound(_loseClip);
             GameManager.Instance.EndGame();
-            GetComponent<Collider2D>().enabled = false;
+            //GetComponent<Collider2D>().enabled = false;
             Instantiate(_explosionPrefab, transform.position, Quaternion.identity);
             return;
         }

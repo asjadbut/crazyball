@@ -27,10 +27,10 @@ public class Obstacle : MonoBehaviour
     private IEnumerator Move()
     {        
         Vector3 posStart = _startPosTop + Random.Range(0f, 1f) * (_endPosTop - _startPosTop);
-        transform.position = posStart;
+        //transform.position = posStart;
         Vector3 posEnd = _startPosBottom + Random.Range(0f, 1f) * (_endPosBottom - _startPosBottom);
-        transform.rotation = Quaternion.identity;
-
+        //transform.rotation = Quaternion.identity;
+        transform.SetPositionAndRotation(posStart,Quaternion.identity);
         yield return Scale(transform, _startScale, _endScale, _timeToScale);
 
         float timeElapsed = 0f;

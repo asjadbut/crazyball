@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -38,6 +39,7 @@ public class MainMenuManager : MonoBehaviour
         }
 
         SetApplicationFPS();
+        SetAccelerometerFrequency();
     }
 
     public void ClickedPlay()
@@ -78,10 +80,14 @@ public class MainMenuManager : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         double deviceRefreshRate = Screen.currentResolution.refreshRateRatio.value;
         if (deviceRefreshRate >= 60)
-            Application.targetFrameRate = 60;
-        if (deviceRefreshRate < 60 && deviceRefreshRate >= 45)
             Application.targetFrameRate = 45;
+        if (deviceRefreshRate < 60 && deviceRefreshRate >= 45)
+            Application.targetFrameRate = 30;
         if (deviceRefreshRate < 45 && deviceRefreshRate >= 30)
             Application.targetFrameRate = 30;
+    }
+    private void SetAccelerometerFrequency()
+    {
+        PlayerSettings.accelerometerFrequency = 1;
     }
 }
