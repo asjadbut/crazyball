@@ -36,6 +36,9 @@ public class GameManager : MonoBehaviour
 
     public static event Action GameStarted, GameEnded, onGameoverLoadInterstitialAd;
 
+    [SerializeField]
+    GameObject scores, buttonsPanel;
+
     //public float fps;
     //public TMP_Text fpsText;
 
@@ -112,21 +115,28 @@ public class GameManager : MonoBehaviour
         }
         _endScoreText.text = score.ToString();
 
-        bool sound = (PlayerPrefs.HasKey(Constants.DATA.SETTINGS_SOUND) ?
-          PlayerPrefs.GetInt(Constants.DATA.SETTINGS_SOUND) : 1) == 1;
-        _soundImage.sprite = sound ? _activeSoundSprite : _inactiveSoundSprite;
-
         int highScore = PlayerPrefs.HasKey(Constants.DATA.HIGH_SCORE) ? PlayerPrefs.GetInt(Constants.DATA.HIGH_SCORE) : 0;
         if (score > highScore)
         {
             _highScoreText.text = "NEW BEST";
             highScore = score;
+            // particle effect
+            AudioManager.Instance.PlayCelebrationSound();
+            LeanTween.scale(scores, new Vector3(1f, 1f, 1f), 2f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
+            LeanTween.moveLocal(buttonsPanel, Vector3.zero, 2.3f).setDelay(2f).setEase(LeanTweenType.easeOutCirc);
             PlayerPrefs.SetInt(Constants.DATA.HIGH_SCORE, highScore);
         }
         else
         {
             _highScoreText.text = "BEST " + highScore.ToString();
+            LeanTween.scale(scores, new Vector3(1f, 1f, 1f), 2f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
+            LeanTween.moveLocal(buttonsPanel, Vector3.zero, 2.3f).setDelay(0.8f).setEase(LeanTweenType.easeOutCirc);
         }
+
+        bool sound = (PlayerPrefs.HasKey(Constants.DATA.SETTINGS_SOUND) ?
+          PlayerPrefs.GetInt(Constants.DATA.SETTINGS_SOUND) : 1) == 1;
+        _soundImage.sprite = sound ? _activeSoundSprite : _inactiveSoundSprite;
+
     }
 
     public void UpdateScore()

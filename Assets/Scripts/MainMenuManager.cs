@@ -17,6 +17,8 @@ public class MainMenuManager : MonoBehaviour
 
     [SerializeField]
     private GameObject _controlsInfoPanel;
+    [SerializeField]
+    private GameObject _mainMenuPanel;
 
     public static bool isSessionActive = false;
     public static bool isBannerAdEnable;
@@ -70,9 +72,11 @@ public class MainMenuManager : MonoBehaviour
     public void ShowControlsInfo()
     {
         _controlsInfoPanel.SetActive(true);
+        _mainMenuPanel.SetActive(false);
     }
     public void HideControlsInfo()
     {
+        _mainMenuPanel.SetActive(true);
         _controlsInfoPanel.SetActive(false);
     }
     private void SetApplicationFPS()

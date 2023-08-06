@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     private AudioSource _effectSource;
 
     [SerializeField]
-    private AudioClip _clickSound;
+    private AudioClip _clickSound, _celebrationSound;
 
     private bool isSoundMuted;
     private bool IsSoundMuted
@@ -65,5 +65,9 @@ public class AudioManager : MonoBehaviour
     public void ToggleSound()
     {
         _effectSource.mute = IsSoundMuted;
+    }
+    public void PlayCelebrationSound()
+    {
+        PlaySound(_celebrationSound);
     }
 }
