@@ -41,7 +41,7 @@ public class MainMenuManager : MonoBehaviour
         }
 
         SetApplicationFPS();
-        SetAccelerometerFrequency();
+        //SetAccelerometerFrequency();
     }
 
     public void ClickedPlay()
@@ -90,8 +90,8 @@ public class MainMenuManager : MonoBehaviour
         if (deviceRefreshRate < 45 && deviceRefreshRate >= 30)
             Application.targetFrameRate = 30;
     }
-    private void SetAccelerometerFrequency()
-    {
-        PlayerSettings.accelerometerFrequency = 1;
-    }
+    //private void SetAccelerometerFrequency()
+    //{
+    //    PlayerSettings.accelerometerFrequency = 1;
+    //}
 }

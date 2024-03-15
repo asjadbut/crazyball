@@ -39,9 +39,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject scores, buttonsPanel;
 
-    [SerializeField]
-    GameObject celebrationEffect;
-
     //public float fps;
     //public TMP_Text fpsText;
 
@@ -122,7 +119,6 @@ public class GameManager : MonoBehaviour
         {
             _highScoreText.text = "NEW BEST";
             highScore = score;
-            celebrationEffect.SetActive(true);
             AudioManager.Instance.PlayCelebrationSound();
             LeanTween.scale(scores, new Vector3(1f, 1f, 1f), 2f).setDelay(0.5f).setEase(LeanTweenType.easeOutElastic);
             LeanTween.moveLocal(buttonsPanel, Vector3.zero, 2.3f).setDelay(2f).setEase(LeanTweenType.easeOutCirc);
@@ -146,7 +142,7 @@ public class GameManager : MonoBehaviour
         score++;
         _scoreText.text = score.ToString();
         _scoreAnimator.Play(_scoreClip.name, -1, 0f);
-        if (score != 0 && score % 10 == 0)
+        if (score is not 0 && score % 5 is 0)
         {
             if(timeToMove > 1.3f)
                 timeToMove -= 0.1f;
